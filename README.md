@@ -1,5 +1,6 @@
 1.使用命令运行文件：
 python main_vua.py --w2v_embedding_dim 300 --elmo_embedding_dim 1024 --attention_query_size 300 --run_type train --pretrained_w2v_model_path static_data/semeval/semeval_embedding.txt --elmo_path static_data/semeval/semeval_elmo.hdf5  --train_path static_data/semeval/train_triples.txt --dev_path static_data/semeval/dev_triples.txt --test_path static_data/semeval/test_triples.txt --vocab_path static_data/semeval/vocab.txt --summary_result_path results --input_dim 300 --output_result_path result/semeval/none/mpoa/rand --attention_layer mpoa --pretrain_model_type none --query_matrix_path static_data/emo_vector_en.json --language_type en --m_a_type rand --triples_vocab_path static_data/semeval/bert_new/350 --epochs_num 200 --triples_embedding_dim 350 --batch_size 32 --dropout 0.3 --learning_rate 0.01 --momentum 0.95 --concat_mode concat
+
 2.参数说明：
 --vocab_path 词表
 --run_type 运行类型,可选[train/test]
