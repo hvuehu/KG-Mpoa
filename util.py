@@ -279,12 +279,10 @@ def get_triples_embedding_matrix(args, path, vocab, normalization=False):
     if normalization:
         for i in range(vocab.size):
             embedding_matrix[i] = embedding_matrix[i] / float(np.linalg.norm(embedding_matrix[i]))
-    if args.concat_mode=="concat":
-        embeddings = nn.Embedding(vocab.size, args.triples_embedding_dim, padding_idx=0)
-        embeddings.weight = nn.Parameter(embedding_matrix)
-        return embeddings
-    else:
-        return embedding_matrix
+    embeddings = nn.Embedding(vocab.size, args.triples_embedding_dim, padding_idx=0)
+    embeddings.weight = nn.Parameter(embedding_matrix)
+    return embeddings
+
 
 
 class Vocab(object):
