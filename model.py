@@ -91,7 +91,8 @@ class RNNSequenceClassifier(nn.Module):
                             list2 = torch.cat((list2, t22), dim=0)
                             head_tail_transformed = self.entity_transformed(list1)
                             head_tail_transformed_final = F.tanh(head_tail_transformed)
-                            relation_transformed1 = list2
+                            #relation_transformed1 = list2
+                            relation_transformed1 = F.tanh(list2)
                             e_weight = (head_tail_transformed_final * relation_transformed1).sum(dim=2)
                             alpha_weight = F.softmax(e_weight, dim=0)
                             graph_embed = (alpha_weight.unsqueeze(1) * head_tail).sum(dim=0)
